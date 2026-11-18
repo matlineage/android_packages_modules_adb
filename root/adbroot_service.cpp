@@ -82,7 +82,7 @@ static inline bool isAutomotive(uid_t uid) {
     return appid == AID_SYSTEM && ::android::isAutomotive();
 }
 
-AdbRootService::AdbRootService() : enabled_(false) {
+AdbRootService::AdbRootService() : enabled_(true) {
     std::string buf;
     if (ReadFileToString(kStoragePath + kEnabled, &buf)) {
         enabled_ = Trim(buf) == "1";
